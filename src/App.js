@@ -1,24 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Accordion from '@material-ui/core/Accordion';
+import {Conatiner} from './styles';
+import { AccordionDetails, AccordionSummary, makeStyles, Typography } from '@material-ui/core';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: '100%',
+  },
+  heading: {
+    fontSize: theme.typography.pxToRem(15),
+    fontWeight: theme.typography.fontWeightRegular,
+  },
+  teste:{
+    color: '#c53030'
+  }
+}));
 
 function App() {
+  const classes = useStyles();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+  <Conatiner>
+    <Accordion>
+    <AccordionSummary 
+          expandIcon={<ExpandMoreIcon className={classes.teste}/>}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Typography className={classes.teste}>Busca Avançada</Typography>
+
+        </AccordionSummary>
+
+        <AccordionDetails>
+          <Typography>
+            <h3>Registro</h3>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
+            sit amet blandit leo lobortis eget.
+          </Typography>
+        </AccordionDetails>
+    </Accordion>
+  </Conatiner>
   );
 }
 
